@@ -4,13 +4,18 @@ import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "employee")
 public class Employee {
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_emp_id")
+	@SequenceGenerator(name = "seq_emp_id", sequenceName = "seq_emp", allocationSize = 1)
 	private Integer empId;
 
 	@Column
@@ -30,8 +35,21 @@ public class Employee {
 
 	@Column
 	private Integer authority;
+
+
+//	@Column
+//	private Integer deptId;
+
 	
-	 public Integer getEmpId() {
+//	 public Integer getDeptId() {
+//		return deptId;
+//	}
+//
+//	public void setDeptId(Integer deptId) {
+//		this.deptId = deptId;
+//	}
+
+	public Integer getEmpId() {
 	        return empId;
 	    }
 
@@ -86,5 +104,6 @@ public class Employee {
 	    public void setAuthority(Integer authority) {
 	        this.authority = authority;
 	    }
+
 
 }

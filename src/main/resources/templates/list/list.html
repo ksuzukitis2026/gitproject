@@ -7,6 +7,7 @@
 </head>
 
 <body class="admin user_list">
+	
 	<h3>社員一覧画面</h3>
 	<!-- セッション中にユーザ情報が存在する場合のみ以下の処理を実行する。 -->
 	<!-- なお、セッション中のユーザ情報がない（null）の場合、-->
@@ -38,21 +39,18 @@
 			<th class="address">住所</th>
 			<th class="birthday">生年月日</th>
 			<th class="authority">権限</th>
-			<th class="deptName">部署名</th>
+			<th class="deptId">部署ID</th>
 		</tr>
 
 		<!-- ***####を書き換え、社員情報を全件出力する*** -->
-		<tr th:each="####:####">
-
-
-
-
-
-
-
-
-
-
+		<tr th:each="employee:${employees}">
+			<td th:text=${employee.empId}></th>
+			<td th:text=${employee.empPass}></th>
+			<td th:text=${employee.empName}></th>
+			<td th:text=${employee.gender}></th>
+			<td th:text=${employee.address}></th>
+			<td th:text=${employee.birthday}></th>
+			<td th:text=${employee.deptId}></th>
 		</tr>
 		<!-- ***####を書き換え、社員情報を全件出力する ここまで*** -->
 	</table>
