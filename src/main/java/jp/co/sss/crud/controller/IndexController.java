@@ -13,6 +13,7 @@ import jp.co.sss.crud.entity.Employee;
 import jp.co.sss.crud.form.LoginForm;
 import jp.co.sss.crud.repository.EmployeeRepository;
 
+//コメント練習
 @Controller
 public class IndexController {
 
