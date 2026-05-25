@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -36,19 +38,26 @@ public class Employee {
 	@Column
 	private Integer authority;
 
-
-//	@Column
-//	private Integer deptId;
+	@ManyToOne
+	@JoinColumn(name="dept_id", referencedColumnName="deptId")
+	private Department department;
+	
+	
+	
 
 	
-//	 public Integer getDeptId() {
-//		return deptId;
-//	}
-//
-//	public void setDeptId(Integer deptId) {
-//		this.deptId = deptId;
-//	}
+	public Department getDepartment() {
+		return department;
+	}
 
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	
+	
+	
+	
 	public Integer getEmpId() {
 	        return empId;
 	    }
