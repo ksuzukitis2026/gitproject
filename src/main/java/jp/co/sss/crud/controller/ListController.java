@@ -20,7 +20,7 @@ public class ListController {
 	
 	@RequestMapping("/list")
 	public String showList(Model model, EmployeeForm form) {
-		session.setAttribute("empName", repository.findEmpName(form.getEmpId()));
+		session.setAttribute("empName", form.getEmpName());
 		model.addAttribute("employees", repository.findAll());
 		return "list/list";
 	}

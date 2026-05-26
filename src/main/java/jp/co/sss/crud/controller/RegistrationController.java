@@ -24,6 +24,8 @@ public class RegistrationController {
 	
 	@RequestMapping("/regist/input")
 	public String registInput(@ModelAttribute EmployeeForm form, Model model) {
+		form.setGender(1);
+		form.setAuthority(1);
 		model.addAttribute("employee", form);
 		return "regist/regist_input";
 	}
@@ -32,7 +34,7 @@ public class RegistrationController {
 	public String registCheck(@Valid @ModelAttribute EmployeeForm form,  BindingResult result, Model model) {
 		
 		if(result.hasErrors()) {
-			return "regist/input";
+			return "regist/regist_input";
 		} else {
 		model.addAttribute("employee", form);
 		return "regist/regist_check";
