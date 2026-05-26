@@ -2,23 +2,17 @@ package jp.co.sss.crud.form;
 
 import java.util.Date;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-
 public class EmployeeForm {
 	/** 社員ID */
 	private Integer empId;
 
 	/** パスワード */
-	@NotBlank
 	private String empPass;
 
 	/** 社員名 */
-	@NotBlank
 	private String empName;
 
 	/** 性別 */
-	@NotNull
 	private Integer gender;
 
 	/** 住所 */
