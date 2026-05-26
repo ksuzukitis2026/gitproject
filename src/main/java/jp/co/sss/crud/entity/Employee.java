@@ -41,11 +41,7 @@ public class Employee {
 	@ManyToOne
 	@JoinColumn(name="dept_id", referencedColumnName="deptId")
 	private Department department;
-	
-	
-	
 
-	
 	public Department getDepartment() {
 		return department;
 	}

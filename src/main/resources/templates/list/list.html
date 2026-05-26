@@ -21,7 +21,7 @@
 	<th:block th:if="${#lists.isEmpty(employees)}">
 		<div class="message">
 			<!--以下に該当する社員が存在しないときのメッセージを記述する -->
-			<p class="back_to_top_message">検索結果が存在しません</p>
+			<p class="back_to_top_message">該当する社員は存在しません。</p>
 			<!--以下に一覧表示に戻るリンクを記述する -->
 			<p class="back_to_top_link"><a th:href="@{/list}">一覧表示に戻る</a></p>
 		</div>
@@ -51,7 +51,9 @@
 					<td th:case="2" th:text="女性"></td>
 				<td th:text="${employee.address}"></td>
 				<td th:text="${#dates.format(employee.birthday, 'yyyy/MM/dd')}"></td>
-				<td th:text="${employee.authority}"></td>
+				<th:block th:switch="${employee.authority}"></th>
+					<td th:case="1" th:text="一般"></td>
+					<td th:case="2" th:text="管理者"></td>
 				<td th:text="${employee.department.deptName}"></td>
 			</tr>
 			<!-- ***####を書き換え、社員情報を全件出力する ここまで*** -->
